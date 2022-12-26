@@ -85,32 +85,45 @@
 # x = file.read()
 # print(type(x))
 
-x = {'aaa': {'y':[1],'p':[7]}, 'oi': {'rr':[6]}, 'c': {'q':[3]}, 'd': {'w':[4,9]}}
-y = {'zxc': {'nh':[1]}, 'oi': {'z':[2],'po':[4]}, 'sc': {'q':[4]}, 'dwa': {'w':[1,3]}}
-y = {**x, **y}
-# y = {'aaa': [1], 'baa;': [2], 'c': [3], 'd': [0]}
-for word, articles in x.items():
-    if word in y:
-        y[word].update(articles)
-    else:
-        y[word] = articles
-# y.update(x)
-print(y)
+# x = {'aaa': {'y':[1],'p':[7]}, 'oi': {'rr':[6]}, 'c': {'q':[3]}, 'd': {'w':[4,9]}}
+# y = {'zxc': {'nh':[1]}, 'oi': {'z':[2],'po':[4]}, 'sc': {'q':[4]}, 'dwa': {'w':[1,3]}}
+# y = {**x, **y}
+# # y = {'aaa': [1], 'baa;': [2], 'c': [3], 'd': [0]}
+# for word, articles in x.items():
+#     if word in y:
+#         y[word].update(articles)
+#     else:
+#         y[word] = articles
+# # y.update(x)
+# print(y)
 
 # import threading
 # import time
 #
 #
 # def my_function(arg1, arg2):
-#     for i in range(arg1):
-#         print(f"Hello from a thread with arguments: {i}, {arg2}")
-#         time.sleep(1)
+#     for i in range(10):
+#         print(f"Hello from a thread with arguments: {arg1}, {arg2}")
+#         time.sleep(arg1)
 #
 # # Create a thread with arguments
-# thread = threading.Thread(target=my_function, args=(10, 2))
-# thread.start()
-# thread1 = threading.Thread(target=my_function, args=(10, 4))
+# for i in range(10):
+#     thread = threading.Thread(target=my_function, args=(0.5, i))
+#     thread.start()
+#     thread1 = threading.Thread(target=my_function, args=(1, i))
 #
 # # Start the thread
 #
-# thread1.start()
+#     thread1.start()
+import json
+file = open('C:/Users/HP/PycharmProjects/pythonProject1/test/foreverconscious.json')
+file1 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/iceagenow.json')
+file2 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/shadowproof.json')
+file3 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/lifespa.json')
+
+# file1 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/21stcenturywire.json')
+articals = json.load(file3)
+x=1
+for artical in articals:
+    print(x)
+    x+=1
