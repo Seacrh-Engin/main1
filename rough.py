@@ -128,7 +128,35 @@
 #     print(x)
 #     x+=1
 
-import multiprocessing
+# import multiprocessing
+#
+# num_cores = multiprocessing.cpu_count()
+# print(num_cores)
+#
+# import spacy
+#
+# # Download and install the 'en_core_web_sm' language model
+# spacy.cli.download('en_core_web_sm')
+# import json
+# index_file = open('C:/Users/HP/PycharmProjects/pythonProject1/file.json','r')
+#
+# inverted_index = json.load(index_file)
+#
+#
+# # Find the maximum key
+# maxkey = 0
+# for word,val in inverted_index.items():
+#   # maxkey+=1
+#   maximum_key = len(inverted_index[word])
+#   if maximum_key>2:
+#     print(word)
+#     print(maximum_key)
+#   if maximum_key>maxkey:
+#     maxkey = maximum_key
+#     maxword = word
+#
+#
+# print(maxkey,"  ",maxword)  # Outputs: 3
 
-num_cores = multiprocessing.cpu_count()
-print(num_cores)
+for i in range(3,1):
+  print(i)
