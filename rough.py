@@ -115,15 +115,20 @@
 # # Start the thread
 #
 #     thread1.start()
-import json
-file = open('C:/Users/HP/PycharmProjects/pythonProject1/test/foreverconscious.json')
-file1 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/iceagenow.json')
-file2 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/shadowproof.json')
-file3 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/lifespa.json')
+# import json
+# file = open('C:/Users/HP/PycharmProjects/pythonProject1/test/foreverconscious.json')
+# file1 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/iceagenow.json')
+# file2 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/shadowproof.json')
+# file3 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/lifespa.json')
+#
+# # file1 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/21stcenturywire.json')
+# articals = json.load(file3)
+# x=1
+# for artical in articals:
+#     print(x)
+#     x+=1
 
-# file1 = open('C:/Users/HP/PycharmProjects/pythonProject1/test/21stcenturywire.json')
-articals = json.load(file3)
-x=1
-for artical in articals:
-    print(x)
-    x+=1
+import multiprocessing
+
+num_cores = multiprocessing.cpu_count()
+print(num_cores)
