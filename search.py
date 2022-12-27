@@ -43,6 +43,6 @@ def Ranking(word):
         for artical in articals:
             rank_dict.update(comparing_lists(word,artical,key))
         rank_lst.append([rank_dict])
-    # print((rank_lst))
-    for key,value in ra
+    print((rank_lst))
+    # for key,value in ra
 Ranking("act")
