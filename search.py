@@ -2,6 +2,8 @@ import json
 
 index_file = open('C:/Users/HP/Documents/GitHub/main1/filexyz.json')
 inverted_index = json.load(index_file)
+https_file = open('C:/Users/HP/Documents/GitHub/main1/https.json')
+https = json.load(https_file)
 
 def pairing(len):
     pairs = set()
@@ -22,7 +24,7 @@ def comparing_lists(word,artical1,total_articals):
     for i in range(3,list1[0]+2):
         rank1 += (i+total_articals)/list1[i]
 
-    return {rank1:artical1}
+    return {str(rank1):https[artical1]}
 
 
 
@@ -36,13 +38,28 @@ def Ranking(word):
     maximum_key = max(articals_length, key=lambda x: x)
     rank_lst = []
     # print(articals_length)
+    occurances_list = list(articals_length)
+    occurances_list.sort(reverse=True)
     for key,articals in articals_length.items():
         # compare_set = pairing(len(articals_length[i]))
         rank_dict = {}
         # print(articals)
         for artical in articals:
-            rank_dict.update(comparing_lists(word,artical,key))
-        rank_lst.append([rank_dict])
-    print((rank_lst))
-    # for key,value in ra
+            rank_dict.update (comparing_lists(word,artical,key))
+        ranklist = []
+        for rank in rank_dict:
+            ranklist.append(rank)
+        ranklist.sort(reverse=True)
+
+        articals_length[key] = ranklist
+        rank_lst.append(rank_dict)
+    # print(occurances_list)
+    # print(articals_length)
+    # print((rank_lst))
+
+    # for occurrence in occurances_list:
+    #     for or_list in rank_lst:
+    #         print("OR-----",or_list)
+    #         for o_rank in articals_length[occurrence]:
+    #             print(or_list[str(o_rank)])
 Ranking("act")

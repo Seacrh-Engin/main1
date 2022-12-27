@@ -158,5 +158,7 @@
 #
 # print(maxkey,"  ",maxword)  # Outputs: 3
 
-for i in range(3,1):
-  print(i)
+x = {4: [1.0159119972099513,0.9], 1: [0.018691588785046728, 0.009009009009009009],5:[1]}
+x=list(x)
+print(x)
+
