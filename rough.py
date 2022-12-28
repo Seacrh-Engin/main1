@@ -158,7 +158,17 @@
 #
 # print(maxkey,"  ",maxword)  # Outputs: 3
 
-x = {4: [1.0159119972099513,0.9], 1: [0.018691588785046728, 0.009009009009009009],5:[1]}
-x=list(x)
-print(x)
+# x = {4: [1.0159119972099513,0.9], 1: [0.018691588785046728, 0.009009009009009009],5:[1]}
+# x=list(x)
+# print(x)
+import os,json
+totalarticals = 0
+for temp in os.listdir('C:/Users/HP/Downloads/dataverse_files/json/json/nela-gt-2021/test/'):
+    file = open('C:/Users/HP/Downloads/dataverse_files/json/json/nela-gt-2021/test/'+temp)
+    articles = json.load(file)
+    totalarticals += len(articles)
+    print((totalarticals))
+    if(totalarticals>150000):
+        break
 
+print("total articals: ", temp)

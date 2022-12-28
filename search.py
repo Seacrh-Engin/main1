@@ -1,4 +1,5 @@
 import json
+from nltk.stem import snowball
 
 import numpy
 
@@ -6,6 +7,8 @@ index_file = open('C:/Users/HP/Documents/GitHub/main1/filexyz.json')
 inverted_index = json.load(index_file)
 https_file = open('C:/Users/HP/Documents/GitHub/main1/https.json')
 https = json.load(https_file)
+stemmer = snowball.EnglishStemmer()
+
 
 def pairing(len):
     pairs = set()
@@ -20,6 +23,7 @@ def comparing_lists(word,artical1,occurances):
     # rank2 = 0
     # print(inverted_index[word])
     # print(artical1)
+
     list1 = inverted_index[word][artical1]
     # list2 = inverted_index[word][artical2]
     rank1 += (1+occurances)/list1[1]
@@ -31,6 +35,7 @@ def comparing_lists(word,artical1,occurances):
 
 
 def Ranking(word):
+    word = stemmer.stem(word)
     articals_dict = inverted_index[word]
     # print(key for key in articals_dict.keys())
     # print(articals_dict)
@@ -69,4 +74,4 @@ def Ranking(word):
 
     for rank in ranklist:
         print(rank_dict[rank])
-Ranking("total")
+Ranking("today")
