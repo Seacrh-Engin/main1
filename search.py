@@ -1,5 +1,7 @@
 import json
 
+import numpy
+
 index_file = open('C:/Users/HP/Documents/GitHub/main1/filexyz.json')
 inverted_index = json.load(index_file)
 https_file = open('C:/Users/HP/Documents/GitHub/main1/https.json')
@@ -13,16 +15,16 @@ def pairing(len):
                 pairs.add((i,j))
     return pairs
 
-def comparing_lists(word,artical1,total_articals):
-    rank1 = 0
+def comparing_lists(word,artical1,occurances):
+    rank1 = occurances
     # rank2 = 0
     # print(inverted_index[word])
     # print(artical1)
     list1 = inverted_index[word][artical1]
     # list2 = inverted_index[word][artical2]
-    rank1 = (1+total_articals)/list1[1]
+    rank1 = (1+occurances)/list1[1]
     for i in range(3,list1[0]+2):
-        rank1 += (i+total_articals)/list1[i]
+        rank1 += (i+occurances)/list1[i]
 
     return {str(rank1):https[artical1]}
 
@@ -40,26 +42,31 @@ def Ranking(word):
     # print(articals_length)
     occurances_list = list(articals_length)
     occurances_list.sort(reverse=True)
+    ranklist = []
+    rank_dict = {}
+
     for key,articals in articals_length.items():
         # compare_set = pairing(len(articals_length[i]))
-        rank_dict = {}
-        # print(articals)
+        print(articals)
         for artical in articals:
             rank_dict.update (comparing_lists(word,artical,key))
-        ranklist = []
-        for rank in rank_dict:
-            ranklist.append(rank)
-        ranklist.sort(reverse=True)
+    for rank in rank_dict:
+        print(rank)
+        ranklist.append(rank)
+    ranklist.sort(reverse=True)
 
-        articals_length[key] = ranklist
-        rank_lst.append(rank_dict)
+        # articals_length[key] = ranklist
+        # rank_lst.append(rank_dict)
     # print(occurances_list)
-    # print(articals_length)
-    # print((rank_lst))
+    print(articals_length)
+    print((ranklist))
 
     # for occurrence in occurances_list:
     #     for or_list in rank_lst:
     #         print("OR-----",or_list)
     #         for o_rank in articals_length[occurrence]:
     #             print(or_list[str(o_rank)])
-Ranking("act")
+
+    for rank in ranklist:
+        print(rank_dict[rank])
+Ranking("total")
