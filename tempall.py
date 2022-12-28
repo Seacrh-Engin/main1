@@ -2,13 +2,13 @@
 import time, nltk, json, spacy, os
 
 from nltk.stem import snowball
+import concurrent.futures
+
 
 start_time = time.time()
 # Opening JSON file
 # file = open('C:/Users/HP/Downloads/dataverse_files/json/json/nela-gt-2021/newsdata/abcnews.json')
 stemmer = snowball.EnglishStemmer()
-# nlp = spacy.load('en_core_web_sm')
-# text = ""
 lexicon_set = set()
 stop_words = set(nltk.corpus.stopwords.words('english'))
 def forward_indexing(articles):
@@ -52,17 +52,18 @@ def merge_indexing(dict2):
             dict1[word] = articles
     temp = open('C:/Users/HP/Documents/GitHub/main1/inverted_indexing.json', 'w')
     json.dump(dict1, temp)
-    file.close()
+    temp.close()
 
-
-for temp in os.listdir('C:/Users/HP/Downloads/dataverse_files/json/json/nela-gt-2021/test/'):
-    file = open('C:/Users/HP/Downloads/dataverse_files/json/json/nela-gt-2021/test/' + temp)
+def indexing(filename):
+    file = open('C:/Users/HP/Downloads/dataverse_files/json/json/nela-gt-2021/test/' + filename)
     articles = json.load(file)
     forward_index = forward_indexing(articles)
     inverted_index = inverted_indexing(forward_index, lexicon_set)
     merge_indexing(inverted_index)
 
-    break
+for temp in os.listdir('C:/Users/HP/Downloads/dataverse_files/json/json/nela-gt-2021/test/')[:6]:
+    indexing(temp)
+
 
 
 end_time = time.time()
