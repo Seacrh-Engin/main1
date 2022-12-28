@@ -22,7 +22,7 @@ def comparing_lists(word,artical1,occurances):
     # print(artical1)
     list1 = inverted_index[word][artical1]
     # list2 = inverted_index[word][artical2]
-    rank1 = (1+occurances)/list1[1]
+    rank1 += (1+occurances)/list1[1]
     for i in range(3,list1[0]+2):
         rank1 += (i+occurances)/list1[i]
 
